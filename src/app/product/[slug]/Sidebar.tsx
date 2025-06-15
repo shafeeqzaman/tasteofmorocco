@@ -32,7 +32,6 @@ const navLinks = [
     { label: "Khobz (Moroccan Bread with Semolina)", href: "#food-moroccan-bread-with-semolina-khobz" },
   ]
 },
-,
   {
     label: "Berber Carpets & Rugs",
     href: "#carpets-products",
