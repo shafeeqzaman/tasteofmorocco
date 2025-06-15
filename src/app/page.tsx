@@ -110,7 +110,8 @@ export default function HomePage() {
                     <h5 className="font-heading text-xl font-bold text-orange-800">{product.name}</h5>
                     {getStatusBadge(product)}
                   </div>
-                  <p className="text-gray-700">{product.description}</p>
+                  <p className="text-gray-700 mb-2">{product.description}</p>
+                  {product.price && <p className="font-semibold text-orange-700">{product.price}</p>}
                 </div>
               </Link>
             </div>
@@ -145,7 +146,8 @@ export default function HomePage() {
                             <h5 className="font-heading text-xl font-bold text-orange-800">{product.name}</h5>
                             {getStatusBadge(product)}
                           </div>
-                          <p className="text-gray-700">{product.description}</p>
+                          <p className="text-gray-700 mb-2">{product.description}</p>
+                          {product.price && <p className="font-semibold text-orange-700">{product.price}</p>}
                         </div>
                       </Link>
                     </div>

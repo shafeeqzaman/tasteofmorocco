@@ -11,7 +11,7 @@ const navLinks = [
     sub: [
       { label: "Couscous (Veal)", href: "#food-couscous-veal" },
       { label: "Pastilla", href: "#food-pastilla" },
-      { label: "Lhem bel Barkouk (Lamb with Prunes)", href: "#food-lhem-bel-barkouk-lamb-with-prunes" },
+      { label: "Lhem bel Barqouq (Meat with Prunes)", href: "#food-lhem-bel-barqouq-meat-with-prunes" },
       { label: "Djaj Mhammar", href: "#food-djaj-mhammar" },
       { label: "Lhem au Four (Roast Veal/Lamb)", href: "#food-lhem-au-four-roast-veal-lamb" },
       { label: "Pasticcio", href: "#food-pasticcio" },

@@ -10,6 +10,7 @@ export const products = [
     images: ["/WhatsApp Image 2025-06-14 at 00.54.23.jpg"],
     available: true,
     status: "available",
+    price: "Price upon request"
   },
   {
     category: "Ceramics",
@@ -19,6 +20,7 @@ export const products = [
     images: ["/WhatsApp Image 2025-06-14 at 00.53.20.jpeg"],
     available: true,
     status: "available",
+    price: "$12"
   },
   {
     category: "Ceramics",
@@ -28,6 +30,7 @@ export const products = [
     images: ["/WhatsApp Image 2025-06-14 at 00.57.13.jpeg"],
     available: true,
     status: "available",
+    price: "$49 for set of 14 glasses"
   },
   {
     category: "Ceramics",
@@ -35,8 +38,9 @@ export const products = [
     slug: "qasriya-couscous-steaming-dish",
     description: "Large shallow ceramic dish for steaming and serving couscous, an essential for Moroccan feasts.",
     images: ["/WhatsApp Image 2025-06-14 at 00.52.31.jpeg"],
-    available: false,
-    status: "preorder",
+    available: true,
+    status: "available",
+    price: "$40"
   },
   {
     category: "Ceramics",
@@ -44,8 +48,9 @@ export const products = [
     slug: "mini-qasriya",
     description: "Individual-size qasriya dishes—perfect for personal servings or decorative use.",
     images: ["/WhatsApp Image 2025-06-14 at 00.55.37.jpeg"],
-    available: false,
-    status: "preorder",
+    available: true,
+    status: "available",
+    price: "$20/pc"
   },
   {
     category: "Ceramics",
@@ -53,8 +58,9 @@ export const products = [
     slug: "dessert-serving-platter",
     description: "Traditional round ceramic platter for serving Moroccan pastries, dates, and sweets.",
     images: ["/WhatsApp Image 2025-06-14 at 00.56.08.jpeg"],
-    available: false,
-    status: "coming-soon",
+    available: true,
+    status: "available",
+    price: "$35"
   },
   {
     category: "Ceramics",
@@ -62,8 +68,9 @@ export const products = [
     slug: "large-serving-plate-with-mini-plates-set",
     description: "Stunning large ceramic platter with 6 matching mini plates—ideal for sharing appetizers, desserts, or meze.",
     images: ["/WhatsApp Image 2025-06-14 at 00.56.34.jpeg"],
-    available: false,
-    status: "coming-soon",
+    available: true,
+    status: "available",
+    price: "$45 for full set"
   },
 
   // FOOD
@@ -77,6 +84,7 @@ export const products = [
     status: "made-to-order",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
+    price: "$22 (1 person), $37 (2 persons)"
   },
   {
     category: "Food",
@@ -86,19 +94,21 @@ export const products = [
     images: ["/WhatsApp Image 2025-06-14 at 01.18.42.jpeg","/WhatsApp Image 2025-06-14 at 01.12.45.jpeg","/IMG_20220827_150750.jpg"],
     available: true,
     status: "made-to-order",
-    leadTimeDays: 1,
-    leadTimeLargeOrderDays: 2,
+    leadTimeDays: 2,
+    leadTimeLargeOrderDays: 3,
+    price: "$18 (1 person), $6 (mini)"
   },
   {
     category: "Food",
-    name: "Lhem bel Barkouk (Lamb with Prunes)",
-    slug: "lhem-bel-barkouk-lamb-with-prunes",
-    description: "Tender lamb slow-cooked with prunes and almonds, blending sweet and savory flavors.",
+    name: "Lhem bel Barqouq (Meat with Prunes)",
+    slug: "lhem-bel-barqouq-meat-with-prunes",
+    description: "Tender veal slow-cooked with prunes and almonds, blending sweet and savory flavors.",
     images: ["/IMG_20220530_142838.jpg"],
     available: true,
     status: "made-to-order",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
+    price: "$22 (1 person), $40 (2 persons)"
   },
   {
     category: "Food",
@@ -107,9 +117,10 @@ export const products = [
     description: "Marinated Moroccan roast chicken, golden and aromatic, often served with olives and preserved lemons.",
     images: ["/IMG_20220820_163406.jpg"],
     available: false,
-    status: "out-of-stock",
+    status: "made-to-order",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
+    price: "$20 (small), $38 (large)"
   },
   {
     category: "Food",
@@ -121,17 +132,19 @@ export const products = [
     status: "made-to-order",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
+    price: "Veal $22 / Lamb $30"
   },
   {
     category: "Food",
     name: "Pasticcio",
     slug: "pasticcio",
-    description: "Layers of pastry filled with seasoned chicken, turkey, or beef—Moroccan-Italian fusion.",
-    images: ["WhatsApp Image 2025-06-14 at 01.06.52.jpeg"],
+    description: "Made with seasoned chicken, ground beef, and smoked turkey, french fries and cheese — Moroccan-Italian fusion.",
+    images: ["/WhatsApp Image 2025-06-14 at 01.06.52.jpeg"],
     available: true,
     status: "made-to-order",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
+    price: "$22"
   },
   {
     category: "Food",
@@ -140,9 +153,10 @@ export const products = [
     description: "Msemmen (Moroccan square layered flatbread), flaky and delicious—perfect for breakfast with honey or cheese.",
     images: ["/WhatsApp Image 2025-06-14 at 01.04.02.jpeg","/WhatsApp Image 2025-06-14 at 01.01.11.jpeg"],
     available: false,
-    status: "out-of-stock",
+    status: "made-to-order",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
+    price: "$2/pc"
   },
   {
     category: "Food",
@@ -151,9 +165,10 @@ export const products = [
     description: "Batbout (Moroccan pocket bread), soft and pillowy, traditionally cooked on a griddle and enjoyed with savory or sweet fillings.",
     images: ["/WhatsApp Image 2025-06-14 at 01.26.12.jpeg","/WhatsApp Image 2025-06-14 at 01.02.44.jpeg"],
     available: false,
-    status: "out-of-stock",
+    status: "made-to-order",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
+    price: "Regular $1/pc, Whole wheat $2/pc, Mini 3 for $1"
   },
   {
     category: "Food",
@@ -165,6 +180,7 @@ export const products = [
     status: "made-to-order",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
+    price: "$2/pc"
   },
 
   // CARPETS
@@ -176,6 +192,7 @@ export const products = [
     images: ["/20250512_123130.jpg"],
     available: true,
     status: "available",
+    price: "Price upon request"
   },
 
   // LEATHER GOODS
@@ -187,6 +204,7 @@ export const products = [
     images: ["/WhatsApp Image 2025-06-14 at 00.51.38.jpg"],
     available: true,
     status: "available",
+    price: "$125"
   },
   {
     category: "Leather Goods",
@@ -194,8 +212,8 @@ export const products = [
     slug: "handbags",
     description: "Elegant Moroccan leather handbags, crafted for both form and function.",
     images: [""],
-    available: true,
-    status: "available",
+    available: false,
+    status: "out-of-stock"
   },
   {
     category: "Leather Goods",
@@ -203,8 +221,8 @@ export const products = [
     slug: "wallets",
     description: "Compact, hand-stitched leather wallets—perfect for daily essentials.",
     images: [""],
-    available: true,
-    status: "available",
+    available: false,
+    status: "out-of-stock"
   },
   {
     category: "Leather Goods",
@@ -212,8 +230,8 @@ export const products = [
     slug: "crossbody-bags-for-men",
     description: "Practical crossbody bags in premium leather, designed for men on the go.",
     images: [""],
-    available: true,
-    status: "available",
+    available: false,
+    status: "out-of-stock"
   },
   {
     category: "Leather Goods",
@@ -222,7 +240,7 @@ export const products = [
     description: "Classic Moroccan babouches for men—comfortable, timeless, and hand-made.",
     images: [""],
     available: false,
-    status: "available",
+    status: "out-of-stock"
   },
   {
     category: "Leather Goods",
@@ -232,5 +250,6 @@ export const products = [
     images: ["/WhatsApp Image 2025-06-14 at 00.51.08.jpg"],
     available: true,
     status: "available",
+    price: "$35"
   },
 ];

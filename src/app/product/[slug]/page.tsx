@@ -18,7 +18,7 @@ function getStatusBadge(product: any) {
   if (product.status === 'coming-soon')
     return <span className="ml-2 inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full">Coming Soon</span>;
   if (product.status === 'out-of-stock' || product.available === false)
-    return <span className="ml-2 inline-block bg-red-200 text-red-800 text-xs px-2 py-1 rounded-full">Out of Stock</span>;
+    return <span className="ml-2 inline-block bg-red-200 text-orange-800 text-xs px-2 py-1 rounded-full">Out of Stock</span>;
   return <span className="ml-2 inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">Available</span>;
 }
 
@@ -31,16 +31,13 @@ export default function ProductDetail() {
   const [open, setOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
 
-  // Core fix: Handle browser back/forward behavior
   useEffect(() => {
     const handlePopState = () => {
       const hash = window.location.hash;
       if (hash) {
-        // If hash exists, user likely returned to homepage with hash — redirect
         router.push('/' + hash);
       }
     };
-
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, [router]);
@@ -104,6 +101,11 @@ export default function ProductDetail() {
           )}
 
           <p className="mb-2 text-lg text-gray-800">{product.description}</p>
+
+          {product.price && (
+            <p className="text-lg font-semibold text-orange-700 mb-2">Price: {product.price}</p>
+          )}
+
           {product.status === 'made-to-order' && (
             <div className="text-orange-700 text-sm mb-2">
               Please order at least 1 day in advance.<br />
@@ -117,9 +119,10 @@ export default function ProductDetail() {
           )}
 
           <div className="bg-white/90 rounded-2xl shadow-xl p-6 border-t-4 border-amber-400 w-full mt-2">
-            <form>
+            <form action="https://formspree.io/f/meokkgeb" method="POST">
               <input
                 type="text"
+                name="name"
                 placeholder="Your Name"
                 className="block w-full mb-4 px-4 py-3 rounded-lg border border-gray-300 bg-white/80 placeholder-gray-500 focus:ring-2 focus:ring-amber-400 outline-none"
                 required
@@ -127,12 +130,14 @@ export default function ProductDetail() {
               />
               <input
                 type="email"
+                name="email"
                 placeholder="Your Email"
                 className="block w-full mb-4 px-4 py-3 rounded-lg border border-gray-300 bg-white/80 placeholder-gray-500 focus:ring-2 focus:ring-amber-400 outline-none"
                 required
                 style={{ fontWeight: 500 }}
               />
               <textarea
+                name="message"
                 placeholder={`Order inquiry for: ${product.name}`}
                 rows={3}
                 className="block w-full mb-4 px-4 py-3 rounded-lg border border-gray-300 bg-white/80 placeholder-gray-500 focus:ring-2 focus:ring-amber-400 outline-none resize-none"

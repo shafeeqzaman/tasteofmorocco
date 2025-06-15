@@ -2,6 +2,11 @@
 import { useState } from "react";
 import { Menu, X, ChevronDown } from "lucide-react";
 
+type SidebarProps = {
+  hamburgerClassName?: string;
+};
+
+
 const navLinks = [
   { label: "Home", href: "#home" },
   {
@@ -23,7 +28,7 @@ const navLinks = [
   sub: [
     { label: "Couscous (Veal)", href: "#food-couscous-veal" },
     { label: "Pastilla", href: "#food-pastilla" },
-    { label: "Lhem bel Barkouk (Lamb with Prunes)", href: "#food-lhem-bel-barkouk-lamb-with-prunes" },
+    { label: "Lhem bel Barqouq (Meat with Prunes)", href: "#food-lhem-bel-barqouq-meat-with-prunes" },
     { label: "Djaj Mhammar", href: "#food-djaj-mhammar" },
     { label: "Lhem au Four (Roast Veal/Lamb)", href: "#food-lhem-au-four-roast-veal-lamb" },
     { label: "Pasticcio", href: "#food-pasticcio" },
@@ -54,7 +59,7 @@ const navLinks = [
   { label: "Contact", href: "#contact" },
 ];
 
-export default function Sidebar() {
+export default function Sidebar({ hamburgerClassName }: SidebarProps) {
   const [open, setOpen] = useState(false);
   const [expanded, setExpanded] = useState<string | null>(null);
 
@@ -65,13 +70,14 @@ export default function Sidebar() {
   return (
     <>
       {/* Hamburger button: visible on all screen sizes, top left */}
-      <button
-        className="fixed top-5 left-5 z-50 p-2 rounded-lg bg-white shadow-lg"
-        onClick={() => setOpen(true)}
-        aria-label="Open navigation"
-      >
-        <Menu size={28} className="text-orange-700" />
-      </button>
+		<button
+			className={hamburgerClassName ?? "fixed top-5 left-5 z-50 p-2 rounded-lg bg-white shadow-lg"}
+			onClick={() => setOpen(true)}
+			aria-label="Open navigation"
+		>
+			<Menu size={28} className="text-orange-700" />
+		</button>
+
 
       {/* Overlay, only visible when sidebar is open */}
       {open && (
