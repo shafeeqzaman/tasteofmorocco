@@ -21,18 +21,12 @@ function getStatusBadge(product: any) {
   return <span className="ml-2 inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">Available</span>;
 }
 
-export default function ProductDetail({ params }: { params: { slug: string } }) {
-  // All logic stays client-side (even in async export)
-  // This signature matches Next.js 15+ app directory requirements
+// Use type that matches Next.js expectations for dynamic route pages
+export default function ProductDetail({ params }: { params: Record<string, string> }) {
   const { slug } = params;
-  // The rest is unchanged:
-  // (Hooks and logic work normally because 'use client' is set)
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [open, setOpen] = useState(false);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
-  const [photoIndex, setPhotoIndex] = useState(0);
-
   const product = products.find((p) => p.slug === slug);
+  const [open, setOpen] = useState(false);
+  const [photoIndex, setPhotoIndex] = useState(0);
 
   if (!product)
     return <div className="text-center text-red-600 py-20">Product not found.</div>;
