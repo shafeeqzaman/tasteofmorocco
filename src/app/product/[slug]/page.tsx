@@ -34,7 +34,7 @@ export default function ProductDetail({ params }: { params: any }) {
   const images = product.images.filter(Boolean);
 
   return (
-    <div className="flex min-h-screen bg-gradient-to-br from-amber-50 via-yellow-100 to-orange-50 font-sans">
+    <div className="flex min-h-screen font-sans">
       {/* Sidebar with improved hamburger style */}
       <Sidebar hamburgerClassName="fixed top-5 left-5 z-[100] p-2 rounded-lg bg-white shadow-2xl" />
       <main className="flex-1 ml-0">

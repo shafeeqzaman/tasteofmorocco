@@ -68,13 +68,8 @@ export default function HomePage() {
 
 
   return (
-    <div
-      className="min-h-screen font-sans"
-      style={{
-        backgroundColor: "#feffd9",
-        backgroundImage: `url("data:image/svg+xml,%3Csvg width='80' height='88' ...")`
-      }}
-    >
+    <div className="min-h-screen font-sans">
+
       <Sidebar />
 
       {/* ---- HERO: edge-to-edge ---- */}
