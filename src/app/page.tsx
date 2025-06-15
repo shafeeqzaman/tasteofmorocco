@@ -23,7 +23,8 @@ const productsByOtherCategory = otherCategories.map((category) => ({
   items: products.filter((p) => p.category === category),
 }));
 
-function getStatusBadge(product) {
+// Replace your getStatusBadge function with this:
+function getStatusBadge(product: any) {
   if (product.status === "made-to-order")
     return <span className="ml-2 inline-block bg-orange-200 text-orange-800 text-xs px-2 py-1 rounded-full">Made to Order</span>;
   if (product.status === "preorder")
@@ -34,6 +35,7 @@ function getStatusBadge(product) {
     return <span className="ml-2 inline-block bg-red-200 text-red-800 text-xs px-2 py-1 rounded-full">Out of Stock</span>;
   return <span className="ml-2 inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">Available</span>;
 }
+
 
 export default function HomePage() {
   // Keen slider setup
