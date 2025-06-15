@@ -22,7 +22,7 @@ function getStatusBadge(product: any) {
   return <span className="ml-2 inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">Available</span>;
 }
 
-export default function ProductDetail({ params }) {
+export default function ProductDetail({ params }: { params: any }) {
   const { slug } = use(params); // Use for Next.js v15+ params handling
   const product = products.find((p) => p.slug === slug);
   const [open, setOpen] = useState(false);
