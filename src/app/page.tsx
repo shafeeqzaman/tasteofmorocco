@@ -45,26 +45,27 @@ export default function HomePage() {
   });
 
   useEffect(() => {
-    if (!instanceRef.current) return;
-    let timeout;
-    let mouseOver = false;
-    const slider = instanceRef.current;
-    function clearNextTimeout() { clearTimeout(timeout); }
-    function nextTimeout() {
-      clearTimeout(timeout);
-      if (mouseOver) return;
-      timeout = setTimeout(() => slider.next(), 3500);
-    }
-    slider.on("created", () => {
-      slider.container.addEventListener("mouseover", () => { mouseOver = true; clearNextTimeout(); });
-      slider.container.addEventListener("mouseout", () => { mouseOver = false; nextTimeout(); });
-      nextTimeout();
-    });
-    slider.on("dragStarted", clearNextTimeout);
-    slider.on("animationEnded", nextTimeout);
-    slider.on("updated", nextTimeout);
-    return () => clearTimeout(timeout);
-  }, [instanceRef]);
+  if (!instanceRef.current) return;
+  let timeout: ReturnType<typeof setTimeout>;
+  let mouseOver = false;
+  const slider = instanceRef.current;
+  function clearNextTimeout() { clearTimeout(timeout); }
+  function nextTimeout() {
+    clearTimeout(timeout);
+    if (mouseOver) return;
+    timeout = setTimeout(() => slider.next(), 3500);
+  }
+  slider.on("created", () => {
+    slider.container.addEventListener("mouseover", () => { mouseOver = true; clearNextTimeout(); });
+    slider.container.addEventListener("mouseout", () => { mouseOver = false; nextTimeout(); });
+    nextTimeout();
+  });
+  slider.on("dragStarted", clearNextTimeout);
+  slider.on("animationEnded", nextTimeout);
+  slider.on("updated", nextTimeout);
+  return () => clearTimeout(timeout);
+}, [instanceRef]);
+
 
   return (
     <div
