@@ -6,18 +6,14 @@ import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import React, { useEffect } from "react";
 
-// Carousel images
 const heroImages = [
   "/hero.jpg",
   "/IMG_20220827_150750.jpg",
   "/IMG_20220827_152816.jpg"
 ];
 
-// Food & category logic
 const foodProducts = products.filter((p) => p.category === "Food");
-const otherCategories = [
-  ...new Set(products.filter((p) => p.category !== "Food").map((p) => p.category))
-];
+const otherCategories = [...new Set(products.filter((p) => p.category !== "Food").map((p) => p.category))];
 const productsByOtherCategory = otherCategories.map((category) => ({
   category,
   items: products.filter((p) => p.category === category),
@@ -36,12 +32,8 @@ function getStatusBadge(product: any) {
 }
 
 export default function HomePage() {
-  const [sliderRef, instanceRef] = useKeenSlider({
-    loop: true,
-    slides: { perView: 1 },
-  });
+  const [sliderRef, instanceRef] = useKeenSlider({ loop: true, slides: { perView: 1 } });
 
-  // Slider autoplay
   useEffect(() => {
     if (!instanceRef.current) return;
     let timeout: ReturnType<typeof setTimeout>;
@@ -64,7 +56,6 @@ export default function HomePage() {
     return () => clearTimeout(timeout);
   }, [instanceRef]);
 
-  // Handle hash scrolling after navigation
   useEffect(() => {
     const handleHashScroll = () => {
       const hash = window.sessionStorage.getItem("pendingHash");
@@ -78,22 +69,15 @@ export default function HomePage() {
         }, 100);
       }
     };
-
-    // Always check on mount
     handleHashScroll();
-
-    // Listen to popstate (back/forward navigation)
     window.addEventListener("popstate", handleHashScroll);
-    return () => {
-      window.removeEventListener("popstate", handleHashScroll);
-    };
+    return () => { window.removeEventListener("popstate", handleHashScroll); };
   }, []);
 
   return (
     <div className="min-h-screen font-sans">
       <Sidebar />
 
-      {/* HERO */}
       <section id="home" className="relative w-full h-[60vh] md:h-[85vh] overflow-hidden">
         <div ref={sliderRef} className="keen-slider w-full h-full">
           {heroImages.map((src, i) => (
@@ -104,9 +88,7 @@ export default function HomePage() {
           ))}
         </div>
         <div className="absolute inset-0 flex flex-col justify-center items-center text-white z-10 px-2">
-          <h1 className="font-heading text-5xl md:text-7xl font-extrabold tracking-wide drop-shadow-lg text-center">
-            Taste of Morocco
-          </h1>
+          <h1 className="font-heading text-5xl md:text-7xl font-extrabold tracking-wide drop-shadow-lg text-center">Taste of Morocco</h1>
           <p className="mt-4 text-xl md:text-2xl font-medium max-w-xl mx-auto drop-shadow text-center">
             Discover vibrant Moroccan cuisine and authentic artisanal treasures—crafted for your home.
           </p>
@@ -116,7 +98,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FOOD */}
       <section id="catalog" className="max-w-6xl mx-auto py-20 px-4">
         <h3 className="font-heading text-3xl font-extrabold text-orange-800 mb-8 text-center tracking-widest">Moroccan Cuisine</h3>
         <div className="grid gap-8 sm:grid-cols-2">
@@ -137,7 +118,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ARTISANAL GOODS */}
       <section className="max-w-6xl mx-auto px-4">
         <h3 className="font-heading text-3xl font-extrabold text-orange-800 mb-8 text-center tracking-widest mt-20">Artisanal Moroccan Goods</h3>
         {productsByOtherCategory.map((cat) => {
@@ -177,18 +157,22 @@ export default function HomePage() {
         })}
       </section>
 
-      {/* CONTACT */}
       <section id="contact" className="bg-gradient-to-br from-amber-100 via-orange-50 to-yellow-100 py-16">
         <div className="max-w-xl mx-auto bg-white rounded-3xl shadow-xl p-10 border-t-8 border-amber-500">
           <h5 className="font-heading text-2xl font-extrabold text-orange-700 mb-6 tracking-wide">Contact Us</h5>
-          <form>
-            <input type="text" placeholder="Your Name" className="block w-full mb-5 px-5 py-3 rounded-full border border-gray-300 focus:ring-2 focus:ring-amber-400 outline-none" required />
-            <input type="email" placeholder="Your Email" className="block w-full mb-5 px-5 py-3 rounded-full border border-gray-300 focus:ring-2 focus:ring-amber-400 outline-none" required />
-            <textarea placeholder="Your Message" rows={4} className="block w-full mb-5 px-5 py-3 rounded-2xl border border-gray-300 focus:ring-2 focus:ring-amber-400 outline-none resize-none" required />
+          <form action="https://formspree.io/f/meokkgeb" method="POST">
+            <input type="text" name="name" placeholder="Your Name" className="block w-full mb-5 px-5 py-3 rounded-full border border-gray-300 focus:ring-2 focus:ring-amber-400 outline-none" required />
+            <input type="email" name="email" placeholder="Your Email" className="block w-full mb-5 px-5 py-3 rounded-full border border-gray-300 focus:ring-2 focus:ring-amber-400 outline-none" required />
+            <textarea name="message" placeholder="Your Message" rows={4} className="block w-full mb-5 px-5 py-3 rounded-2xl border border-gray-300 focus:ring-2 focus:ring-amber-400 outline-none resize-none" required />
             <button type="submit" className="w-full bg-orange-600 text-white font-semibold py-3 rounded-full hover:bg-amber-500 transition">Send Inquiry</button>
           </form>
         </div>
       </section>
+
+      <a href="https://wa.me/15198045902" target="_blank" rel="noopener noreferrer"
+        className="fixed bottom-5 right-5 z-50 bg-green-500 text-white rounded-full p-4 shadow-lg hover:bg-green-600 transition">
+        WhatsApp
+      </a>
 
       <footer className="text-center py-4 text-orange-700 bg-white/90">&copy; 2025 Taste of Morocco &mdash; Crafted with passion</footer>
     </div>
