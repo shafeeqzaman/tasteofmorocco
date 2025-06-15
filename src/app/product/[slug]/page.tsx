@@ -10,7 +10,7 @@ import "yet-another-react-lightbox/styles.css";
 import "yet-another-react-lightbox/plugins/thumbnails.css";
 
 // Status badge utility
-function getStatusBadge(product) {
+function getStatusBadge(product: any) {
   if (product.status === "made-to-order")
     return <span className="ml-2 inline-block bg-orange-200 text-orange-800 text-xs px-2 py-1 rounded-full">Made to Order</span>;
   if (product.status === "preorder")
