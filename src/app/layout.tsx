@@ -2,9 +2,8 @@ import "@fontsource/inter/index.css";
 import "@fontsource/merriweather/700.css";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
-import { Analytics } from "@vercel/analytics/next"
-import { SpeedInsights } from "@vercel/speed-insights/next"
-
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 import "./globals.css";
 
@@ -18,7 +17,7 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-export const metadata = {
+export const metadata: Metadata = {
   title: 'Taste of Morocco | Moroccan Cuisine, Catering & Artisanal Goods in Canada',
   description: 'Experience the richness of Moroccan culture with Taste of Morocco. Enjoy authentic halal meals, catering, cooking classes, and shop handcrafted goods made by Moroccan artisans, including Berber rugs, ceramics, and leather products.',
 };
@@ -30,10 +29,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
+      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         {children}
+        <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   );
