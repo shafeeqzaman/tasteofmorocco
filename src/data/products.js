@@ -79,7 +79,7 @@ export const products = [
     name: "Couscous (Veal)",
     slug: "couscous-veal",
     description: "Couscous with tender veal and garden vegetables, topped with caramelized raisins and onions.",
-    images: ["/WhatsApp Image 2025-06-14 at 01.05.59.jpeg","/WhatsApp Image 2025-06-14 at 01.05.29.jpeg"],
+    images: ["/WhatsApp Image 2025-06-14 at 01.05.59.jpeg", "/WhatsApp Image 2025-06-14 at 01.05.29.jpeg"],
     available: true,
     status: "made-to-order",
     leadTimeDays: 1,
@@ -91,7 +91,7 @@ export const products = [
     name: "Pastilla",
     slug: "pastilla",
     description: "A savory-sweet pie with thin pastry, spiced chicken or seafood, almonds, cinnamon, and sugar—a festive Moroccan classic.",
-    images: ["/WhatsApp Image 2025-06-14 at 01.18.42.jpeg","/WhatsApp Image 2025-06-14 at 01.12.45.jpeg","/IMG_20220827_150750.jpg"],
+    images: ["/WhatsApp Image 2025-06-14 at 01.18.42.jpeg", "/WhatsApp Image 2025-06-14 at 01.12.45.jpeg", "/IMG_20220827_150750.jpg"],
     available: true,
     status: "made-to-order",
     leadTimeDays: 2,
@@ -151,7 +151,7 @@ export const products = [
     name: "Msemmen",
     slug: "msemmen",
     description: "Msemmen (Moroccan square layered flatbread), flaky and delicious—perfect for breakfast with honey or cheese.",
-    images: ["/WhatsApp Image 2025-06-14 at 01.04.02.jpeg","/WhatsApp Image 2025-06-14 at 01.01.11.jpeg"],
+    images: ["/WhatsApp Image 2025-06-14 at 01.04.02.jpeg", "/WhatsApp Image 2025-06-14 at 01.01.11.jpeg"],
     available: false,
     status: "made-to-order",
     leadTimeDays: 1,
@@ -163,7 +163,7 @@ export const products = [
     name: "Batbout",
     slug: "batbout",
     description: "Batbout (Moroccan pocket bread), soft and pillowy, traditionally cooked on a griddle and enjoyed with savory or sweet fillings.",
-    images: ["/WhatsApp Image 2025-06-14 at 01.26.12.jpeg","/WhatsApp Image 2025-06-14 at 01.02.44.jpeg"],
+    images: ["/WhatsApp Image 2025-06-14 at 01.26.12.jpeg", "/WhatsApp Image 2025-06-14 at 01.02.44.jpeg"],
     available: false,
     status: "made-to-order",
     leadTimeDays: 1,
@@ -183,16 +183,16 @@ export const products = [
     price: "$2/pc"
   },
 
-  // CARPETS
+  // BERBER RUGS
   {
-    category: "Berber Carpets & Rugs",
-    name: "Berber Rugs",
-    slug: "berber-rugs",
-    description: "Hand-woven Berber rugs—each piece tells a unique story through color and pattern.",
-    images: ["/20250512_123130.jpg"],
-    available: true,
-    status: "available",
-    price: "Price upon request"
+  category: "Berber Carpets, Rugs, and Poufs",
+  name: "Berber Rugs",
+  slug: "berber-rugs",
+  description: "Hand-woven Berber rugs—each piece tells a unique story through color and pattern.",
+  images: ["/20250512_123130.jpg"],
+  available: true,
+  status: "available",
+  price: "Price upon request"
   },
 
   // LEATHER GOODS
@@ -251,5 +251,5 @@ export const products = [
     available: true,
     status: "available",
     price: "$35"
-  },
+  }
 ];

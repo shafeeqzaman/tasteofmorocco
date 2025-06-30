@@ -1,35 +1,67 @@
 'use client';
+
 import { useEffect, useState } from 'react';
-import { useParams, useRouter } from 'next/navigation';
+import { useParams, useRouter, notFound } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
 import { products } from '@/data/products';
+import ProductInquiryForm from '@/components/ProductInquiryForm';
 import Lightbox from 'yet-another-react-lightbox';
 import Thumbnails from 'yet-another-react-lightbox/plugins/thumbnails';
 import Zoom from 'yet-another-react-lightbox/plugins/zoom';
 import 'yet-another-react-lightbox/styles.css';
 import 'yet-another-react-lightbox/plugins/thumbnails.css';
 
-// Status badge utility
 function getStatusBadge(product: any) {
   if (product.status === 'made-to-order')
-    return <span className="ml-2 inline-block bg-orange-200 text-orange-800 text-xs px-2 py-1 rounded-full">Made to Order</span>;
+    return (
+      <span className="ml-2 inline-block bg-orange-200 text-orange-800 text-xs px-2 py-1 rounded-full">
+        Made to Order
+      </span>
+    );
   if (product.status === 'preorder')
-    return <span className="ml-2 inline-block bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded-full">Pre-Order</span>;
+    return (
+      <span className="ml-2 inline-block bg-blue-200 text-blue-800 text-xs px-2 py-1 rounded-full">
+        Pre-Order
+      </span>
+    );
   if (product.status === 'coming-soon')
-    return <span className="ml-2 inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full">Coming Soon</span>;
+    return (
+      <span className="ml-2 inline-block bg-gray-200 text-gray-800 text-xs px-2 py-1 rounded-full">
+        Coming Soon
+      </span>
+    );
   if (product.status === 'out-of-stock' || product.available === false)
-    return <span className="ml-2 inline-block bg-red-200 text-orange-800 text-xs px-2 py-1 rounded-full">Out of Stock</span>;
-  return <span className="ml-2 inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">Available</span>;
+    return (
+      <span className="ml-2 inline-block bg-red-200 text-orange-800 text-xs px-2 py-1 rounded-full">
+        Out of Stock
+      </span>
+    );
+  return (
+    <span className="ml-2 inline-block bg-green-200 text-green-800 text-xs px-2 py-1 rounded-full">
+      Available
+    </span>
+  );
 }
 
 export default function ProductDetail() {
-  const params = useParams<{ slug: string }>();
   const router = useRouter();
-  const { slug } = params;
-
-  const product = products.find((p) => p.slug === slug);
+  const { category, slug } = useParams<{ category: string; slug: string }>();
   const [open, setOpen] = useState(false);
   const [photoIndex, setPhotoIndex] = useState(0);
+
+  // Normalized route-to-display mapping
+  const routeToDisplay: Record<string, string> = {
+    'food': 'Food',
+    'ceramics': 'Ceramics',
+    'berber-rugs': 'Berber Carpets, Rugs, and Poufs',
+    'leather-goods': 'Leather Goods'
+  };
+
+  const displayCategory = routeToDisplay[category?.toLowerCase() || ''];
+
+  const product = products.find(
+    (p) => p.slug === slug && p.category === displayCategory
+  );
 
   useEffect(() => {
     const handlePopState = () => {
@@ -42,8 +74,9 @@ export default function ProductDetail() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, [router]);
 
-  if (!product)
-    return <div className="text-center text-red-600 py-20">Product not found.</div>;
+  if (!product) {
+    notFound(); // 404
+  }
 
   const images = product.images.filter(Boolean);
 
@@ -77,7 +110,11 @@ export default function ProductDetail() {
                     src={img}
                     alt={`${product.name} - ${idx + 1}`}
                     className={`rounded-lg h-16 w-16 object-cover border-2 transition cursor-pointer 
-                      ${idx === photoIndex ? 'border-orange-500 shadow-md' : 'border-transparent'}`}
+                    ${
+                      idx === photoIndex
+                        ? 'border-orange-500 shadow-md'
+                        : 'border-transparent'
+                    }`}
                     onClick={() => {
                       setPhotoIndex(idx);
                       setOpen(true);
@@ -103,55 +140,26 @@ export default function ProductDetail() {
           <p className="mb-2 text-lg text-gray-800">{product.description}</p>
 
           {product.price && (
-            <p className="text-lg font-semibold text-orange-700 mb-2">Price: {product.price}</p>
+            <p className="text-lg font-semibold text-orange-700 mb-2">
+              Price: {product.price}
+            </p>
           )}
 
           {product.status === 'made-to-order' && (
             <div className="text-orange-700 text-sm mb-2">
-              Please order at least 1 day in advance.<br />
+              Please order at least 1 day in advance.
+              <br />
               Large food orders require minimum 2 days’ notice.
             </div>
           )}
+
           {!product.available && (
             <div className="text-red-700 text-sm mb-2">
               Currently unavailable for immediate order. Contact us to pre-order or reserve.
             </div>
           )}
 
-          <div className="bg-white/90 rounded-2xl shadow-xl p-6 border-t-4 border-amber-400 w-full mt-2">
-            <form action="https://formspree.io/f/meokkgeb" method="POST">
-              <input
-                type="text"
-                name="name"
-                placeholder="Your Name"
-                className="block w-full mb-4 px-4 py-3 rounded-lg border border-gray-300 bg-white/80 placeholder-gray-500 focus:ring-2 focus:ring-amber-400 outline-none"
-                required
-                style={{ fontWeight: 500 }}
-              />
-              <input
-                type="email"
-                name="email"
-                placeholder="Your Email"
-                className="block w-full mb-4 px-4 py-3 rounded-lg border border-gray-300 bg-white/80 placeholder-gray-500 focus:ring-2 focus:ring-amber-400 outline-none"
-                required
-                style={{ fontWeight: 500 }}
-              />
-              <textarea
-                name="message"
-                placeholder={`Order inquiry for: ${product.name}`}
-                rows={3}
-                className="block w-full mb-4 px-4 py-3 rounded-lg border border-gray-300 bg-white/80 placeholder-gray-500 focus:ring-2 focus:ring-amber-400 outline-none resize-none"
-                required
-                style={{ fontWeight: 500 }}
-              />
-              <button
-                type="submit"
-                className="w-full bg-orange-600 text-white font-semibold py-3 rounded-full hover:bg-amber-500 hover:text-orange-900 shadow transition"
-              >
-                Send Inquiry
-              </button>
-            </form>
-          </div>
+          <ProductInquiryForm productName={product.name} />
         </div>
       </main>
     </div>
