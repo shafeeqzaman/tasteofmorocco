@@ -15,10 +15,10 @@ const heroImages = [
 ];
 
 const categories = [
-  { label: "Food", icon: "🍲", href: "/categories/food" },
-  { label: "Ceramics", icon: "🏺", href: "/categories/ceramics" },
-  { label: "Berber Carpets, Rugs, and Poufs", icon: "🛋️", href: "/categories/berber-rugs" },
-  { label: "Leather Goods", icon: "👜", href: "/categories/leather-goods" }
+  { label: "Food", href: "/categories/food" },
+  { label: "Ceramics", href: "/categories/ceramics" },
+  { label: "Berber Carpets, Rugs, and Poufs", href: "/categories/berber-rugs" },
+  { label: "Leather Goods", href: "/categories/leather-goods" }
 ];
 
 // Helper to group product images by category label
