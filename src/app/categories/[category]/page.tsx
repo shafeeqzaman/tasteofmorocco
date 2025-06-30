@@ -33,21 +33,28 @@ export default function CategoryPage() {
   return (
     <div className="min-h-screen font-sans">
       <Sidebar />
-      <section className="max-w-6xl mx-auto px-4 py-12">
-        <h1 className="text-4xl font-extrabold text-orange-800 mb-6 text-center tracking-wide">
-          {displayName}
-        </h1>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {categoryProducts.map((product) => (
-            <ProductCard
-              key={product.slug}
-              product={product}
-              showLink={true}
-              href={`/categories/${displayToRoute[product.category]}/product/${product.slug}`}
-            />
-          ))}
-        </div>
-      </section>
+	<section className="max-w-7xl mx-auto px-4 py-12">
+	  <h1 className="text-4xl font-extrabold text-orange-800 mb-6 text-center tracking-wide">
+		{displayName}
+	  </h1>
+	  <div
+    className="
+      grid gap-7
+      grid-cols-[repeat(auto-fit,minmax(290px,1fr))]
+      md:grid-cols-[repeat(auto-fit,minmax(330px,1fr))]
+      xl:grid-cols-[repeat(auto-fit,minmax(360px,1fr))]
+      2xl:grid-cols-[repeat(auto-fit,minmax(400px,1fr))]
+    "
+  >
+    {categoryProducts.map((product) => (
+      <ProductCard
+        key={product.slug}
+        product={product}
+        route={`/categories/${displayToRoute[product.category]}/product/${product.slug}`}
+      />
+    ))}
+  </div>
+</section>
     </div>
   );
 }

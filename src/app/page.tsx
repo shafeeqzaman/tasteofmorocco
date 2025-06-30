@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import React, { useEffect } from "react";
-
+import SocialMediaButton from '@/components/SocialMediaButton';
 import CategoryTileCarousel from "@/components/CategoryTileCarousel";
 import { products } from "@/data/products";
 
@@ -58,8 +58,8 @@ export default function HomePage() {
   }, [instanceRef]);
 
   return (
-    <div className="min-h-screen font-sans">
-
+    <div className="min-h-[140vh] font-sans relative">
+      {/* HERO CAROUSEL */}
       <section className="relative w-full h-[60vh] md:h-[85vh] overflow-hidden">
         <div ref={sliderRef} className="keen-slider w-full h-full">
           {heroImages.map((src, i) => (
@@ -78,15 +78,14 @@ export default function HomePage() {
       </section>
 
       {/* --- CATEGORY TILES WITH CAROUSEL --- */}
-      <section className="max-w-6xl mx-auto my-12 px-4">
+      <section className="max-w-6xl mx-auto my-12 px-4 pb-64">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {categories.map(({ label, icon, href }) => (
+          {categories.map(({ label, href }) => (
             <CategoryTileCarousel
               key={label}
               images={getCategoryImages(label)}
               label={label}
               link={href}
-              icon={icon}
             />
           ))}
         </div>

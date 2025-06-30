@@ -4,9 +4,9 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/react";
-
 import "./globals.css";
-import Sidebar from "@/components/Sidebar"; // Make sure this path reflects your actual location
+import Sidebar from "@/components/Sidebar";
+import SocialMediaButton from "@/components/SocialMediaButton"; // <-- Import here!
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,14 +25,30 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en">
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
         <Sidebar />
         {children}
+        {/* Social Media Floating Buttons */}
+		<SocialMediaButton
+		  type="whatsapp"
+		  href="https://wa.me/15198045902?text=Hello%2C%20I%20have%20an%20inquiry"
+		  style={{ bottom: 120 }}
+		/>
+		<SocialMediaButton
+		  type="instagram"
+		  href="https://www.instagram.com/tasteofmorocco_"
+		  style={{ bottom: 68 }}
+		/>
+		<SocialMediaButton
+		  type="tiktok"
+		  href="https://www.tiktok.com/@taste.of.morocco.ca"
+		  style={{ bottom: 16 }}
+		/>
         <Analytics />
         <SpeedInsights />
       </body>
