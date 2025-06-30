@@ -1,8 +1,12 @@
 'use client';
+
 import Link from "next/link";
 import { useKeenSlider } from "keen-slider/react";
 import "keen-slider/keen-slider.min.css";
 import React, { useEffect } from "react";
+
+import CategoryTileCarousel from "@/components/CategoryTileCarousel";
+import { products } from "@/data/products";
 
 const heroImages = [
   "/hero.jpg",
@@ -13,18 +17,23 @@ const heroImages = [
 const categories = [
   { label: "Food", icon: "🍲", href: "/categories/food" },
   { label: "Ceramics", icon: "🏺", href: "/categories/ceramics" },
-  { label: "Berber Rugs", icon: "🛋️", href: "/categories/berber-rugs" },
-  { label: "Leather Goods", icon: "👜", href: "/categories/leather-goods" },
-  { label: "Contact", icon: "📞", href: "/contact" },
+  { label: "Berber Carpets, Rugs, and Poufs", icon: "🛋️", href: "/categories/berber-rugs" },
+  { label: "Leather Goods", icon: "👜", href: "/categories/leather-goods" }
 ];
 
+// Helper to group product images by category label
+function getCategoryImages(label: string): string[] {
+  return products
+    .filter((p) => p.category === label)
+    .flatMap((p) => p.images.filter(Boolean));
+}
 
 export default function HomePage() {
   const [sliderRef, instanceRef] = useKeenSlider({ loop: true, slides: { perView: 1 } });
 
   useEffect(() => {
     if (!instanceRef.current) return;
-    let timeout;
+    let timeout: any;
     let mouseOver = false;
     const slider = instanceRef.current;
 
@@ -68,13 +77,17 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* --- CATEGORY TILES WITH CAROUSEL --- */}
       <section className="max-w-6xl mx-auto my-12 px-4">
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
           {categories.map(({ label, icon, href }) => (
-            <Link key={href} href={href} className="flex flex-col items-center p-6 bg-white rounded-xl shadow hover:shadow-md transition transform hover:-translate-y-1">
-              <div className="text-4xl mb-2">{icon}</div>
-              <div className="font-semibold text-orange-700 text-lg">{label}</div>
-            </Link>
+            <CategoryTileCarousel
+              key={label}
+              images={getCategoryImages(label)}
+              label={label}
+              link={href}
+              icon={icon}
+            />
           ))}
         </div>
       </section>
