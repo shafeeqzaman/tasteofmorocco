@@ -1,26 +1,25 @@
 'use client';
 
-import { useParams } from 'next/navigation';
-import { notFound } from 'next/navigation';
-import { products } from '@/data/products';
-import ProductCard from '@/components/ProductCard';
+import { useParams, notFound } from 'next/navigation';
 import Sidebar from '@/components/Sidebar';
+import ProductCard from '@/components/ProductCard';
+import { products } from '@/data/products';
 
-// This map defines the canonical route segments (URLs)
-const displayToRoute: Record<string, string> = {
-  'Food': 'food',
-  'Ceramics': 'ceramics',
-  'Berber Carpets, Rugs, and Poufs': 'berber-rugs',
-  'Leather Goods': 'leather-goods'
+// canonical slug → display name
+const routeToDisplay: Record<string, string> = {
+  food: 'Food',
+  ceramics: 'Ceramics',
+  'berber-rugs': 'Berber Carpets, Rugs, and Poufs',
+  'leather-goods': 'Leather Goods',
 };
-
-const routeToDisplay = Object.fromEntries(
-  Object.entries(displayToRoute).map(([k, v]) => [v, k])
-);
 
 export default function CategoryPage() {
   const { category } = useParams<{ category: string }>();
-  const displayName = routeToDisplay[category?.toLowerCase() || ''];
+  const displayName = routeToDisplay[category || ''];
+
+  if (!displayName) {
+    notFound();
+  }
 
   const categoryProducts = products.filter(
     (p) => p.category === displayName
@@ -31,30 +30,33 @@ export default function CategoryPage() {
   }
 
   return (
-    <div className="min-h-screen font-sans">
+    <div className="flex min-h-screen font-sans">
       <Sidebar />
-	<section className="max-w-7xl mx-auto px-4 py-12">
-	  <h1 className="text-4xl font-extrabold text-orange-800 mb-6 text-center tracking-wide">
-		{displayName}
-	  </h1>
-	  <div
-    className="
-      grid gap-7
-      grid-cols-[repeat(auto-fit,minmax(290px,1fr))]
-      md:grid-cols-[repeat(auto-fit,minmax(330px,1fr))]
-      xl:grid-cols-[repeat(auto-fit,minmax(360px,1fr))]
-      2xl:grid-cols-[repeat(auto-fit,minmax(400px,1fr))]
-    "
-  >
-    {categoryProducts.map((product) => (
-      <ProductCard
-        key={product.slug}
-        product={product}
-        route={`/categories/${displayToRoute[product.category]}/product/${product.slug}`}
-      />
-    ))}
-  </div>
-</section>
+
+      <main className="flex-1 px-6 py-12">
+        <h1 className="text-4xl font-extrabold text-orange-800 mb-8 text-center">
+          {displayName}
+        </h1>
+
+        <div
+          className="
+            grid gap-7
+            grid-cols-[repeat(auto-fit,minmax(290px,1fr))]
+            md:grid-cols-[repeat(auto-fit,minmax(330px,1fr))]
+            xl:grid-cols-[repeat(auto-fit,minmax(360px,1fr))]
+            2xl:grid-cols-[repeat(auto-fit,minmax(400px,1fr))]
+          "
+        >
+          {categoryProducts.map((product) => (
+            <ProductCard
+              key={product.slug}
+              product={product}
+              href={`/categories/${category}/product/${product.slug}`}
+              showLink={true}
+            />
+          ))}
+        </div>
+      </main>
     </div>
   );
 }
