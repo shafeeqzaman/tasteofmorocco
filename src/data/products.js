@@ -410,7 +410,7 @@ export const products = [
     name: "L7mad Mrakkad – Citron fermenté (Fermented Lemon)",
     slug: "fermented-lemon",  
     description: "Whole lemons preserved in sea salt and their own juices—perfect for adding bright, tangy depth to Djaj Mhammar and other tajines.",
-    images: ["/images/food/fermented-lemon.jpg"],  
+    images: ["/images/food/condiments-set-single.jpg"],  
     available: true,
     status: "made-to-order",
     leadTimeDays: 1,
