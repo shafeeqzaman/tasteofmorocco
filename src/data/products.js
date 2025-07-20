@@ -38,7 +38,7 @@ export const products = [
     slug: "qasriya-couscous-steaming-dish",
     description: "Large shallow ceramic dish for steaming and serving couscous, an essential for Moroccan feasts.",
     images: ["/WhatsApp Image 2025-06-14 at 00.52.31.jpeg"],
-    available: true,
+    available: false,
     status: "available",
     price: "$40"
   },
@@ -50,7 +50,7 @@ export const products = [
     images: ["/WhatsApp Image 2025-06-14 at 00.55.37.jpeg"],
     available: true,
     status: "available",
-    price: "$20/pc"
+    price: "$13/pc"
   },
   {
     category: "Ceramics",
@@ -267,7 +267,7 @@ export const products = [
 	status: "made-to-order",
 	leadTimeDays: 1,
 	leadTimeLargeOrderDays: 2,
-	price: "Regular $1/pc, Whole wheat $2/pc, Mini 3 for $1"
+	price: "Regular $2/pc, Whole wheat $2.50/pc, Mini 3 for $2"
   },
  /* {
     category: "Food",
@@ -363,7 +363,7 @@ export const products = [
 	status: "made-to-order",
 	leadTimeDays: 1,
 	leadTimeLargeOrderDays: 1,
-	price: "$1/pc"
+	price: "$1.50/pc"
   },
 
   // ── FOOD: Briwats & Mini Treats ───────────────────────────────────────────
@@ -510,7 +510,7 @@ export const products = [
   },
   {
     category: "Leather Goods",
-    name: "Babouches - Mans (Traditional Moroccan Leather Slippers)",
+    name: "Babouches - Mens (Traditional Moroccan Leather Slippers)",
     slug: "traditional-moroccan-leather-slippers-men",
     description: "Classic Moroccan babouches for men—comfortable, timeless, and hand-made.",
     images: [],
