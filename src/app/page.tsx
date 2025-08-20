@@ -96,14 +96,22 @@ export default function HomePage() {
       {/* CATEGORY TILES */}
       <section className="max-w-6xl mx-auto my-12 px-4 pb-64">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-          {categories.map(({ label, href }) => (
-            <CategoryTileCarousel
-              key={label}
-              images={getCategoryImages(label)}
-              label={label}
-              link={href}
-            />
-          ))}
+{categories.map(({ label, href }) => (
+  <div key={label} className="flex flex-col gap-2">
+    {label === 'Food' && (
+      <div className="bg-yellow-100 text-yellow-900 border-l-4 border-yellow-500 p-4 rounded-xl shadow text-sm leading-relaxed">
+        <strong className="block font-semibold mb-1">Notice:</strong>
+        We are not currently selling food items. Food is planned for a future expansion and the menu has been shared to gauge interest only.
+      </div>
+    )}
+    <CategoryTileCarousel
+      images={getCategoryImages(label)}
+      label={label}
+      link={href}
+    />
+  </div>
+))}
+
         </div>
       </section>
 

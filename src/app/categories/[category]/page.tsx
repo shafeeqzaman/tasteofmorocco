@@ -30,7 +30,16 @@ export default function CategoryPage() {
   }
 
   return (
-    <div className="flex min-h-screen font-sans">
+    <div className="flex-1 px-6 py-12">
+  {category.toLowerCase() === "food" && (
+    <div className="bg-yellow-100 border border-yellow-300 text-yellow-900 px-4 py-3 rounded-lg shadow mb-6 text-sm max-w-4xl mx-auto">
+      <p>
+        <strong>Note:</strong> <span className="font-semibold">Food is not currently being sold or served.</span> This menu is for demonstration and future planning purposes only.
+      </p>
+    </div>
+  )}
+
+
       <Sidebar />
 
       <main className="flex-1 px-6 py-12">

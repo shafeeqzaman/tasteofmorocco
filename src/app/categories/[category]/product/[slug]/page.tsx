@@ -100,6 +100,7 @@ export default function ProductDetail() {
 
       <div className="flex min-h-screen font-sans">
         <Sidebar />
+		
         <main className="flex-1 ml-0">
           <div className="max-w-3xl mx-auto py-12 px-4 pt-24 sm:pt-12 flex flex-col gap-8">
             <h1 className="font-heading text-4xl font-extrabold mb-2 text-orange-900 flex items-center gap-3">

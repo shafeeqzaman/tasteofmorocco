@@ -80,8 +80,8 @@ export const products = [
     slug: "fig-bocconcini-salad",
     description: "Mixed greens crowned with fresh fig wedges, bocconcini pearls, cherry tomatoes, avocado slices and toasted walnuts, finished with a bright citrus vinaigrette.",
     images: ["/images/food/fig-bocconcini-salad.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$14"
@@ -94,11 +94,11 @@ export const products = [
     slug: "couscous-veal",
     description: "Couscous with tender veal and garden vegetables, topped with caramelized raisins and onions.",
     images: [
-      "/WhatsApp Image 2025-06-14 at 01.05.59.jpeg",
-      "/WhatsApp Image 2025-06-14 at 01.05.29.jpeg"
+      "/0WhatsApp Image 2025-06-14 at 01.05.59.jpeg",
+      "/0WhatsApp Image 2025-06-14 at 01.05.29.jpeg"
     ],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
     price: "$22 (1 person), $37 (2 persons)"
@@ -110,11 +110,11 @@ export const products = [
     description: "A savory-sweet pie with thin pastry, spiced chicken or seafood, almonds, cinnamon, and sugar—a festive Moroccan classic.",
     images: [
       "/WhatsApp Image 2025-06-14 at 01.18.42.jpeg",
-      "/WhatsApp Image 2025-06-14 at 01.12.45.jpeg",
+      "/0WhatsApp Image 2025-06-14 at 01.12.45.jpeg",
       "/IMG_20220827_150750.jpg"
     ],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 2,
     leadTimeLargeOrderDays: 3,
     price: "$18 (1 person), $6 (mini)"
@@ -126,7 +126,7 @@ export const products = [
     description: "Marinated Moroccan roast chicken, golden and aromatic, served with olives and preserved lemons.",
     images: ["/IMG_20220820_163406.jpg"],
     available: false,
-    status: "made-to-order",
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
     price: "$20 (small), $38 (large)"
@@ -137,8 +137,8 @@ export const products = [
     slug: "lhem-au-four-roast-veal-lamb",
     description: "Oven-roasted lamb or veal, seasoned with Moroccan spices for a tender, flavorful dish.",
     images: ["/IMG_20220611_153303.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
     price: "Veal $22 / Lamb $30"
@@ -148,9 +148,9 @@ export const products = [
     name: "Pasticcio",
     slug: "pasticcio",
     description: "Moroccan-Italian fusion bake with chicken, ground beef, smoked turkey, fries and cheese.",
-    images: ["/WhatsApp Image 2025-06-14 at 01.06.52.jpeg"],
-    available: true,
-    status: "made-to-order",
+    images: ["/0WhatsApp Image 2025-06-14 at 01.06.52.jpeg"],
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
     price: "$22"
@@ -163,8 +163,8 @@ export const products = [
     slug: "tajine-vegetarian",
     description: "Colorful vegetable tajine slow-cooked with olives, carrots, and Moroccan spices.",
     images: ["/images/food/tajine-vegetarian.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
     price: "$18 (1 person), $33 (2 persons)"
@@ -174,9 +174,9 @@ export const products = [
     name: "Tajine (Chicken & Vegetables)",
     slug: "tajine-chicken-vegetables",
     description: "Tender chicken pieces with seasonal vegetables and spices.",
-    images: ["/images/food/tajine-chicken-vegetables.jpg"],
-    available: true,
-    status: "made-to-order",
+    images: ["/images/food/0tajine-chicken-vegetables.jpg"],
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
     price: "$20 (1 person), $35 (2 persons)"
@@ -186,9 +186,9 @@ export const products = [
     name: "Tajine (Beef & Vegetables)",
     slug: "tajine-beef-vegetables",
     description: "Hearty beef chunks simmered with vegetables and aromatic ras el hanout.",
-    images: ["/images/food/tajine-beef-vegetables.jpg"],
-    available: true,
-    status: "made-to-order",
+    images: ["/images/food/0tajine-beef-vegetables.jpg"],
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
     price: "$22 (1 person), $37 (2 persons)"
@@ -201,8 +201,8 @@ export const products = [
     slug: "harira",
     description: "Traditional Moroccan soup of tomatoes, lentils, chickpeas and tender lamb.",
     images: ["/images/food/harira.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$9"
@@ -213,8 +213,8 @@ export const products = [
     slug: "lentil-soup",
     description: "Silky lentil soup seasoned with cumin, garlic, and a hint of lemon.",
     images: ["/images/food/lentil-soup.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$8"
@@ -225,8 +225,8 @@ export const products = [
     slug: "loubia",
     description: "Creamy white beans slow-cooked in tomato sauce with garlic and cilantro.",
     images: ["/images/food/loubia.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$8"
@@ -237,8 +237,8 @@ export const products = [
     slug: "zaalouk",
     description: "Smoky eggplant & tomato salad with garlic, paprika and fresh cilantro.",
     images: ["/images/food/zaalouk.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$9"
@@ -251,8 +251,8 @@ export const products = [
     slug: "khobz-moroccan-bread-with-semolina",
     description: "Rustic round bread with a golden crust and hearty semolina flavor.",
     images: ["/WhatsApp Image 2025-06-14 at 01.04.45.jpeg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$2/pc"
@@ -264,7 +264,7 @@ export const products = [
 	description: "Batbout (Moroccan pocket bread), soft and pillowy, traditionally cooked on a griddle and enjoyed with savory or sweet fillings.",
 	images: ["/WhatsApp Image 2025-06-14 at 01.26.12.jpeg", "/WhatsApp Image 2025-06-14 at 01.02.44.jpeg"],
 	available: false,
-	status: "made-to-order",
+	status: "Unavailable",
 	leadTimeDays: 1,
 	leadTimeLargeOrderDays: 2,
 	price: "Regular $2/pc, Whole wheat $2.50/pc, Mini 3 for $2"
@@ -275,8 +275,8 @@ export const products = [
     slug: "batbout-mini",
     description: "Soft, pocketed mini batbout—perfect for dipping or filling.",
     images: ["/images/food/batbout-mini.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$0.50"
@@ -287,8 +287,8 @@ export const products = [
     slug: "batbout-stuffed-vegetable",
     description: "Batbout filled with a savory vegetable mélange.",
     images: ["/images/food/batbout-stuffed-vegetable.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$5"
@@ -299,8 +299,8 @@ export const products = [
     slug: "batbout-stuffed-meat",
     description: "Batbout filled with ground beef and vegetables.",
     images: ["/images/food/batbout-stuffed-meat.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$6"
@@ -311,8 +311,8 @@ export const products = [
 	slug: "guorss",
 	description: "Light and airy Moroccan flatbread, served warm.",
 	images: ["/images/food/guorss.jpg", "/images/food/guorss2.jpg",  "/images/food/guorss3.jpg"],
-	available: true,
-	status: "made-to-order",
+	available: false,
+	status: "Unavailable",
 	leadTimeDays: 1,
 	leadTimeLargeOrderDays: 1,
 	price: "$2"
@@ -323,8 +323,8 @@ export const products = [
     slug: "harcha",
     description: "Semolina flatbread, crisp on the outside and tender inside.",  
     images: ["/images/food/harcha.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$1.50"
@@ -335,8 +335,8 @@ export const products = [
     slug: "harcha-olives-zaatar",
     description: "Semolina flatbread studded with olives and fragrant zaatar.",  
     images: ["/images/food/harcha-olives-zaatar.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$2.30"
@@ -348,7 +348,7 @@ export const products = [
 	description: "Large Msemmen (Moroccan square layered flatbread), flaky and delicious—perfect for breakfast with honey or cheese.",
 	images: ["/WhatsApp Image 2025-06-14 at 01.04.02.jpeg", "/WhatsApp Image 2025-06-14 at 01.01.11.jpeg"],
 	available: false,
-	status: "made-to-order",
+	status: "Unavailable",
 	leadTimeDays: 1,
 	leadTimeLargeOrderDays: 2,
 	price: "$3/pc"
@@ -359,11 +359,11 @@ export const products = [
 	slug: "mini-msemmen",
 	description: "Bite-sized layered semolina flatbreads—crispy on the outside, tender inside—perfect for snacking or cheese pairing.",
 	images: ["/images/food/mini-msemmen.jpg"],
-	available: true,
-	status: "made-to-order",
+	available: false,
+	status: "Unavailable",
 	leadTimeDays: 1,
 	leadTimeLargeOrderDays: 1,
-	price: "$1.50/pc"
+	price: "$2/pc"
   },
 
   // ── FOOD: Briwats & Mini Treats ───────────────────────────────────────────
@@ -373,8 +373,8 @@ export const products = [
     slug: "mini-pastilla",
     description: "Crispy mini chicken pastilla layered with almonds and cinnamon.",
     images: ["/images/food/mini-pastilla.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$6"
@@ -385,8 +385,8 @@ export const products = [
     slug: "briwat-beef-vegetable",
     description: "Triangular or cylindrical pastry filled with seasoned ground beef and vegetables.",
     images: ["/images/food/briwat-beef-vegetable.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$3"
@@ -397,8 +397,8 @@ export const products = [
     slug: "briwat-chicken-vegetable",
     description: "Triangular or cylindrical pastry filled with spiced chicken and seasonal veggies.",
     images: ["/images/food/briwat-chicken-vegetable.jpg"],
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$3"
@@ -411,8 +411,8 @@ export const products = [
     slug: "fermented-lemon",  
     description: "Whole lemons preserved in sea salt and their own juices—perfect for adding bright, tangy depth to Djaj Mhammar and other tajines.",
     images: ["/images/food/condiments-set-single.jpg"],  
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 1,
     price: "$4 each"
@@ -425,8 +425,8 @@ export const products = [
     slug: "seffa",  
     description: "Sweet steamed vermicelli layered with cinnamon, toasted almonds and powdered sugar.",
     images: ["/images/food/seffa.jpg"],  
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 1,
     leadTimeLargeOrderDays: 2,
     price: "$12 (small)"
@@ -437,8 +437,8 @@ export const products = [
     slug: "gateaux-marocain",  
     description: "Delicate almond-based Moroccan biscuits, lightly dusted with powdered sugar.",
     images: ["/images/food/gateaux-marocain.jpg"],  
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 2,
     leadTimeLargeOrderDays: 3,
     price: "$12 per dozen"
@@ -451,8 +451,8 @@ export const products = [
     slug: "msemen-for-rfissa",  
     description: "Layered msemen pancakes sold per kilogram for traditional Rfissa service.",
     images: ["/images/food/msemen-for-rfissa.jpg"],  
-    available: true,
-    status: "made-to-order",
+    available: false,
+    status: "Unavailable",
     leadTimeDays: 2,
     leadTimeLargeOrderDays: 3,
     price: "$25/kg"
