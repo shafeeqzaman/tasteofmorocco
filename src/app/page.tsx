@@ -94,26 +94,31 @@ export default function HomePage() {
       </section>
 
       {/* CATEGORY TILES */}
-      <section className="max-w-6xl mx-auto my-12 px-4 pb-64">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-{categories.map(({ label, href }) => (
-  <div key={label} className="flex flex-col gap-2">
-    {label === 'Food' && (
-      <div className="bg-yellow-100 text-yellow-900 border-l-4 border-yellow-500 p-4 rounded-xl shadow text-sm leading-relaxed">
-        <strong className="block font-semibold mb-1">Notice:</strong>
-        We are not currently selling food items. Food is planned for a future expansion and the menu has been shared to gauge interest only.
-      </div>
-    )}
-    <CategoryTileCarousel
-      images={getCategoryImages(label)}
-      label={label}
-      link={href}
-    />
+<section className="max-w-6xl mx-auto my-12 px-4 pb-64">
+  {/* Category Tiles */}
+  <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+    {categories.map(({ label, href }) => (
+      <CategoryTileCarousel
+        key={label}
+        images={getCategoryImages(label)}
+        label={label}
+        link={href}
+      />
+    ))}
   </div>
-))}
 
-        </div>
-      </section>
+  {/* Food Disclaimer - Positioned Below */}
+  <div className="mt-10 flex justify-center">
+    <div className="bg-yellow-50 border border-yellow-300 text-yellow-900 px-5 py-4 rounded-md shadow text-sm max-w-2xl">
+      <p>
+        <strong className="font-semibold">Note:</strong>{' '}
+        Food is not currently being sold or served. We hope to add it as part
+        of a future expansion.
+      </p>
+    </div>
+  </div>
+</section>
+
 
       <footer className="text-center py-4 text-orange-700 bg-white/90">
         &copy; 2025 Taste of Morocco &mdash; Crafted with passion

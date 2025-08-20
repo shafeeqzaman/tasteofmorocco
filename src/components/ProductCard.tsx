@@ -24,23 +24,42 @@ export default function ProductCard({
   href,
   showLink = false,
 }: Props) {
-  // track if the image actually failed
   const [imgError, setImgError] = useState(false);
-
-  // pick the first image, if any
   const src = product.images && product.images[0];
 
-  // badge helper
+  // Status badge positioned over the card as a corner marker
   const StatusBadge = () => {
-    if (product.status === 'made-to-order') return <span className="...">Made to Order</span>;
-    if (product.status === 'preorder')       return <span className="...">Pre-Order</span>;
-    if (product.status === 'coming-soon')    return <span className="...">Coming Soon</span>;
-    if (product.status === 'out-of-stock' || product.available === false)
-      return <span className="...">Out of Stock</span>;
-    return <span className="...">Available</span>;
+    if (product.status === 'out-of-stock' || product.available === false) {
+      return (
+        <div className="absolute top-0 left-0 bg-red-100 text-red-800 text-xs font-semibold px-2 py-1 rounded-br-xl z-10 shadow-md">
+          Out of Stock
+        </div>
+      );
+    }
+    if (product.status === 'made-to-order') {
+      return (
+        <div className="absolute top-0 left-0 bg-yellow-100 text-yellow-800 text-xs font-semibold px-2 py-1 rounded-br-xl z-10 shadow-md">
+          Made to Order
+        </div>
+      );
+    }
+    if (product.status === 'preorder') {
+      return (
+        <div className="absolute top-0 left-0 bg-blue-100 text-blue-800 text-xs font-semibold px-2 py-1 rounded-br-xl z-10 shadow-md">
+          Pre-Order
+        </div>
+      );
+    }
+    if (product.status === 'coming-soon') {
+      return (
+        <div className="absolute top-0 left-0 bg-gray-100 text-gray-700 text-xs font-semibold px-2 py-1 rounded-br-xl z-10 shadow-md">
+          Coming Soon
+        </div>
+      );
+    }
+    return null;
   };
 
-  // render either the <img> or the placeholder box
   const ImageBlock = () => {
     if (!src || imgError) {
       return (
@@ -49,7 +68,6 @@ export default function ProductCard({
         </div>
       );
     }
-
     return (
       <img
         src={src}
@@ -61,16 +79,14 @@ export default function ProductCard({
   };
 
   const CardInner = (
-    <div className="flex bg-white rounded-2xl shadow hover:ring-2 hover:ring-orange-300 overflow-hidden transition">
-      <ImageBlock />
-      <div className="p-4 flex flex-col justify-center">
-        <div className="flex items-center mb-1">
-          <h5 className="font-heading text-xl font-bold text-orange-800">
-            {product.name}
-          </h5>
-          <StatusBadge />
-        </div>
-        <p className="text-gray-700 text-sm mb-1">{product.description}</p>
+    <div className="relative flex bg-white rounded-2xl shadow hover:ring-2 hover:ring-orange-300 overflow-hidden transition min-h-[180px]">
+      {StatusBadge()}
+      {ImageBlock()}
+      <div className="p-4 flex flex-col justify-center min-w-0">
+        <h5 className="font-heading text-xl font-bold text-orange-800 leading-snug mb-1 break-words">
+          {product.name}
+        </h5>
+        <p className="text-gray-700 text-sm mb-1 break-words">{product.description}</p>
         {product.price && (
           <p className="font-semibold text-orange-700 text-sm">{product.price}</p>
         )}
